@@ -60,6 +60,7 @@ bar:
       default_workspace_background: "transparent"
   components_center:
     - type: "window title"
+      max_title_length: 60
   components_right:
     - type: "system tray"
     - type: "tiling direction"
