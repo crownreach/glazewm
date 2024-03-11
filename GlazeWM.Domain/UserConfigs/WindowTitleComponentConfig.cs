@@ -10,6 +10,6 @@ namespace GlazeWM.Domain.UserConfigs
     /// <summary>
     /// The maximum length after which the window title will be truncated; if set to -1, the title will not be truncated.
     /// </summary>
-    public int MaxTitleLength { get; set; } = 6
+    public int MaxTitleLength { get; set; } = 6;
   }
 }
