@@ -101,6 +101,9 @@
                 Padding="{Binding Padding}"
                 Background="{Binding Background}" />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type components:ScriptedTextComponentViewModel}">
+              <components:ScriptedTextComponent />
+            </DataTemplate>
           </ContentPresenter.Resources>
         </ContentPresenter>
       </Grid>
