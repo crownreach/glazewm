@@ -72,6 +72,7 @@ namespace GlazeWM.Domain.Common.CommandHandlers
       // abstraction over `EnumDisplayMonitors` native method.
       foreach (var screen in System.Windows.Forms.Screen.AllScreens)
         _bus.Invoke(new AddMonitorCommand(screen));
+        _bus.Invoke(new LoadManagedWindowsCommand());
 
       // Add initial windows to the tree.
       // TODO: Copy all the below over to populate with cache method, but filter out window handles
@@ -79,6 +80,8 @@ namespace GlazeWM.Domain.Common.CommandHandlers
       foreach (var windowHandle in WindowService.GetAllWindowHandles())
       {
         if (!WindowService.IsHandleManageable(windowHandle))
+          continue;
+        if (_windowService.IsHandleManaged(windowHandle))
           continue;
 
         // Get workspace that encompasses most of the window.
